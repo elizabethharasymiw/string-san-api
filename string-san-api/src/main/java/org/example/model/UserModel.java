@@ -6,6 +6,10 @@ public class UserModel {
     private String lastName;
     private Integer membershipId;
 
+    public UserModel(){
+
+    }
+
     public UserModel(String firstname, String lastName, Integer membershipId){
         this.firstName = firstname;
         this.lastName = lastName;
