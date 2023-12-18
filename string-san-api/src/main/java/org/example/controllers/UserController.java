@@ -2,6 +2,8 @@ package org.example.controllers;
 
 
 import org.example.model.UserModel;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -23,8 +25,9 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public void createUser(@RequestBody UserModel user){
+    public ResponseEntity<HttpStatus> createUser(@RequestBody UserModel user){
         userMap.put(user.getFirstName(), user);
+        return ResponseEntity.accepted().build();
     }
 
 }
