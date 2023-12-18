@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -20,8 +21,13 @@ public class UserController {
     }
 
     @GetMapping("/getUser/{userName}")
-    public UserModel getUser(@PathVariable String userName){
-        return userMap.get(userName);
+    public ResponseEntity<UserModel> getUser(@PathVariable String userName){
+        if(userMap.containsKey(userName)){
+            return ResponseEntity.of(Optional.of(userMap.get(userName)));
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping("/addUser")
