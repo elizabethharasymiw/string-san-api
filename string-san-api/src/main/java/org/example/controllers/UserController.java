@@ -2,9 +2,7 @@ package org.example.controllers;
 
 
 import org.example.model.UserModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +20,11 @@ public class UserController {
     @GetMapping("/getUser/{userName}")
     public UserModel getUser(@PathVariable String userName){
         return userMap.get(userName);
+    }
+
+    @PostMapping("/addUser")
+    public void createUser(@RequestBody UserModel user){
+        userMap.put(user.getFirstName(), user);
     }
 
 }
