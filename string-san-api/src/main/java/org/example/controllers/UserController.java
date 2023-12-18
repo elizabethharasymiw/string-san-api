@@ -30,4 +30,10 @@ public class UserController {
         return ResponseEntity.accepted().build();
     }
 
+    @DeleteMapping("/deleteUser/{userName}")
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable String userName){
+        userMap.remove(userName);
+        return ResponseEntity.noContent().build();
+    }
+
 }
