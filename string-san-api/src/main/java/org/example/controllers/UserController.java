@@ -3,12 +3,11 @@ package org.example.controllers;
 
 import org.example.model.UserModel;
 import org.example.services.UserService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -16,7 +15,7 @@ public class UserController {
 
     private UserService service;
 
-    public UserController(UserService service){
+    public UserController(@Qualifier("user_service_Q") UserService service){
         this.service = service;
     }
 
