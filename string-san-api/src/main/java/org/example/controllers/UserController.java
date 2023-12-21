@@ -3,6 +3,7 @@ package org.example.controllers;
 
 import org.example.model.UserModel;
 import org.example.services.UserService;
+import org.example.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,10 @@ import java.util.Optional;
 @RestController
 public class UserController {
 
-    private UserService service;
+    private UserServiceImpl service;
 
-    public UserController(@Qualifier("user_service_Q") UserService service){
-        this.service = service;
+    public UserController(UserServiceImpl userService){
+        this.service = userService;
     }
 
     @GetMapping("/getUser/{userName}")

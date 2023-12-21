@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-@Qualifier("user_service_Q")
 public class UserServiceImpl {
 
     private Map<String, UserModel> userMap = new HashMap<>();
