@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 
     private Map<String, UserModel> userMap = new HashMap<>();
 

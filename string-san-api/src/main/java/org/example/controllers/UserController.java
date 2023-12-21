@@ -14,9 +14,9 @@ import java.util.Optional;
 @RestController
 public class UserController {
 
-    private UserServiceImpl service;
+    private UserService service;
 
-    public UserController(UserServiceImpl userService){
+    public UserController(UserService userService){
         this.service = userService;
     }
 
